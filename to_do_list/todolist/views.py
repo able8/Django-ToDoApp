@@ -25,8 +25,10 @@ def home(request):
 def about(request):
     return render(request, 'todolist/about.html')
 
-def edit(request):
-    return render(request, 'todolist/edit.html')
+def edit(request, forloop_counter):
+    global lst
+    content = {'待修改事项': lst[int(forloop_counter) - 1]['待办事项']}
+    return render(request, 'todolist/edit.html', content)
 
 def delete(request, forloop_counter):
     lst.pop(int(forloop_counter) - 1)

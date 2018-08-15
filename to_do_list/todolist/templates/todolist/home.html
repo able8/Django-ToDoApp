@@ -36,7 +36,7 @@
 <tr>
   <th scope="row">{{ forloop.counter }}</th>
   <td>{{ 每一件事.待办事项 }}</td>
-  <td><a class="text-info" href="{% url 'todolist:编辑' %}">编辑</a></td>
+  <td><a class="text-info" href="{% url 'todolist:编辑' forloop.counter %}">编辑</a></td>
   <td><a class="text-info" href="#">划掉</a></td>
   <td><a class="text-info" href="{% url 'todolist:删除' forloop.counter %}">删除</a></td>
 </tr>
