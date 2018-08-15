@@ -68,3 +68,13 @@ to_do_list/todolist/urls.py [与待办事项相关的网址交给我接手]
                        \/
 to_do_list/todolist/views.py [用户通过这些网址发出的请求的由我来处理]
 ```
+
+## 4.bootstrap导航栏 
+- https://v4.bootcss.com/docs/4.0/examples/  找到Navbar static 复制源代码
+- 替换cdn
+```
+<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+```
+
