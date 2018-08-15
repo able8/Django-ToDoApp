@@ -78,3 +78,10 @@ to_do_list/todolist/views.py [用户通过这些网址发出的请求的由我�
 <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 ```
 
+## 5.bootstrap表格
+- https://v4.bootcss.com/docs/4.0/content/tables/
+
+## 6.bootstrap表单
+
+
+
