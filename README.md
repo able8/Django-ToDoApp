@@ -83,5 +83,67 @@ to_do_list/todolist/views.py [用户通过这些网址发出的请求的由我�
 
 ## 6.bootstrap表单
 
+## 7.网址名,网页名
+
+- 关于include()
+- 大项目 -> 要避免网址名 网页名冲突
+- render() 如何找到网页 ?
+    - 根据所提供的网页名称,找所有的templates的文件夹,取第一个匹配的
+- 网页名字重复怎么办?
+```
+    给个前缀
+    建个新文件夹在templates下,以 app的名字 命名
+    templates/app的名字/网页名字
+    views.py -> return render(request, "todolist/home.html")
+
+    <a href="hostname/urlpattern"></a>
+```
+- 想改网址怎么办?要改的地方好多o(╥﹏╥)o
+```
+    给网址起名字
+    <a href="{% url 'url_name' %}"></a>  template tag{% tag_name  %}
+```
+
+- 网址名跟其他app里面的网址名字重复怎么办?
+```
+    给个前缀
+    urls.py -> app_name = 'todolist'
+    <a href="{% url 'todolist:url_name' %}"></a>
+```
+## 8.模版继承
+- 我想改变导航栏的样式怎么办? 3个网页都要改?
+    - Template inheritance
+    - 做个模板html(所有网页的风格主题), 其他网页继承它,拓展它, 类似python的类继承
+```
+extends
+{% extends "base.html" %}
+
+block tag
+{% block blockname %}
+
+{% endblock blockname %}
+
+three-level 大网站建议三级,小网站两级 
+
+                              article.html
+                            / 
+             base_news.html  
+           /                \
+base.html                     live.html
+           \
+             base_sports.html
+```
+
+## 9.静态文件
+- 新建static文件夹，存放 图片 css javascript
+- 里面，再新建一个app文件夹，避免与其他app的static文件夹里面的静态文件冲突
+```
+app/static/app/images
+app/static/app/js
+app/static/app/css
+app/static/app/icons
 
 
+{% load static %}
+{% static "路径" %}
+```

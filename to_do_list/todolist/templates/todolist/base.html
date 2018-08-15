@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,27 +9,17 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>编辑待办事项</title>
+    <title>{% block 标题 %}未命名{% endblock 标题 %}</title>
+
+    <!-- lable icon -->
+    <link href="{% static 'todolist/icons/icon_list.png' %}" rel="shortcut icon" />
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <style>
-        #topnav{
-            font-size: 1.35em;
-            padding-left: 5em;
-            padding-right: 5em;
-            height: 2.5em;
-        }
-        nav input{
-          width: 39%!important;
-        }
-        #form-edit{
-           margin-left:8em;
-           margin-right:8em;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'todolist/css/base.css' %}">
+    <link rel="stylesheet" href="{% block css %}{% endblock css %}">
   </head>
 
   <body>
@@ -38,30 +30,23 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item ">
-            <a class="nav-link" href="#">待办清单</a>
+          <li class="nav-item {% block 主页高亮 %}{% endblock 主页高亮 %}">
+            <a class="nav-link" href="{% url 'todolist:主页' %}"><img src="{% static 'todolist/images/logo_list.png' %}" width="33" height="33" class="d-inline-block align-top" alt=""> 待办清单</a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">关于本站</a>
+          <li class="nav-item {% block 关于高亮 %}{% endblock 关于高亮 %}">
+            <a class="nav-link" href="{% url 'todolist:关于' %}">关于本站</a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0 col-7 justify-content-end">
-          <input class="form-control mr-sm-2 " type="text" placeholder="待办事项" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">添加</button>
+          <input class="form-control mr-sm-2" type="text" placeholder="待办事项" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">添加</button>
         </form>
       </div>
     </nav>
 
     <main role="main" class="container">
-      <br>
-      <form id="form-edit">
-        <div class="form-group">
-          <label for="editTodo"></label>
-          <input class="form-control form-control-lg" id="editTodo" type="text" value="遛狗">
-          <small id="help" class="form-text text-muted">在这里编辑待办事项</small>
-        </div>
-        <button type="button" class="btn btn-primary btn-lg btn-block">提交</button>
-      </form>
+      {% block 主体 %}
+      {% endblock 主体 %}
     </main>
 
     <!-- Bootstrap core JavaScript
