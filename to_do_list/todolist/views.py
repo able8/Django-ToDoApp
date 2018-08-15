@@ -41,3 +41,12 @@ def edit(request, forloop_counter):
 def delete(request, forloop_counter):
     lst.pop(int(forloop_counter) - 1)
     return redirect('todolist:主页')
+
+def cross(request, forloop_counter):
+    global lst
+    if request.POST['完成状态'] == '已完成':
+        lst[int(forloop_counter) - 1]['已完成'] = True
+        return redirect('todolist:主页')
+    elif request.POST['完成状态'] == '未完成':
+        lst[int(forloop_counter) - 1]['已完成'] = False
+        return redirect('todolist:主页')

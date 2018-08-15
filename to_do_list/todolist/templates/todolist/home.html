@@ -28,7 +28,13 @@
   <th class="text-dark" scope="row">{{ forloop.counter }}</th>
   <td class="text-dark" id="line-through">{{ 每一件事.待办事项 }}</td>
   <td class="text-secondary">不可编辑</td>
-  <td><a class="text-info" href="#">撤销</a></td>
+  <td>
+      <form method="POST" action="{% url 'todolist:划掉' forloop.counter %}">
+          {% csrf_token %}
+          <input name="完成状态" type="hidden" value="未完成" >
+      <button type="submit" class="btn btn-primary btn-sm">撤销</button>
+      </form>
+  </td>
   <td>
       <form method="POST" action="{% url 'todolist:删除' forloop.counter %}">
         {% csrf_token %}
@@ -41,8 +47,16 @@
 <tr>
   <th scope="row">{{ forloop.counter }}</th>
   <td>{{ 每一件事.待办事项 }}</td>
-  <td><a class="text-info" href="{% url 'todolist:编辑' forloop.counter %}">编辑</a></td>
-  <td><a class="text-info" href="#">划掉</a></td>
+  <td><a href="{% url 'todolist:编辑' forloop.counter %}">
+    <button type="submit" class="btn btn-primary btn-sm"> 
+    编辑</button></a></td>
+  <td>
+  <form method="POST" action="{% url 'todolist:划掉' forloop.counter %}">
+      {% csrf_token %}
+      <input name="完成状态" type="hidden" value="已完成" >
+  <button type="submit" class="btn btn-primary btn-sm">划掉</button>
+  </form>
+  </td>
   <td>
     <form method="POST" action="{% url 'todolist:删除' forloop.counter %}">
       {% csrf_token %}
