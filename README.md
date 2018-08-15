@@ -2,7 +2,7 @@
 
 - Django Web开发  零基础学习 搭建待办清单网站 
 
-- 根据[B站视频](https://www.bilibili.com/video/av24293644/?p=1)整理 
+- 根据[B站视频](https://www.bilibili.com/video/av24293644/?p=1)整理，简单易懂
 
 ## 1.前期准备
 
@@ -30,7 +30,7 @@ python manage.py runserver  # 启动服务器
 ctrl + c  # 关闭服务器
 ```
 
-## 2.创建app和网页.txt
+## 2.创建app和网页
 - 激活虚拟环境
 ```
 cd Django_venv # 到虚拟环境文件夹
@@ -49,3 +49,22 @@ python manage.py startapp todolist
 'todolist',
 ```
 - 在这个app里面做个html网页,放在```templates```(网页模板)文件夹中
+
+
+## 3.配置url和view
+- 设置好网址, 给这个页面起个什么网址
+- 当用户通过这个网址发出请求时，将网页发送给他
+- 因为这个网页是待办事项网页, 网址设置和用户请求都让 todolist APP处理
+```
+to_do_list/to_do_list/urls.py [所有网址首先由它接手]
+                       ||
+                       ||
+                      \  /
+                       \/
+to_do_list/todolist/urls.py [与待办事项相关的网址交给我接手]
+                       ||
+                       ||
+                      \  /
+                       \/
+to_do_list/todolist/views.py [用户通过这些网址发出的请求的由我来处理]
+```
