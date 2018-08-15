@@ -147,3 +147,11 @@ app/static/app/icons
 {% load static %}
 {% static "路径" %}
 ```
+## 10.处理用户请求
+- request GET
+- HTML form -> action="" method="POST"  button->submit
+- {% csrf_token %}  跨站请求伪造
+- name=""  给input的起名字
+- request.POST是什么?  QueryDict
+- content dictionary 在html中通过var访问字典
+- {{ var }}  变量{{ }} 和标签{% %}  

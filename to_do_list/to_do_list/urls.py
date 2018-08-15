@@ -19,5 +19,5 @@ import todolist.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include(todolist.urls)),
+    url(r'todo/', include(todolist.urls)),
 ]
