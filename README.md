@@ -155,3 +155,31 @@ app/static/app/icons
 - request.POST是什么?  QueryDict
 - content dictionary 在html中通过var访问字典
 - {{ var }}  变量{{ }} 和标签{% %}  
+
+## 11.增删改查(一)
+- 增删改查 用字典存储, 只要服务器开着...
+- 如果是get请求怎么办? 
+- request.POST 中不存在'待办事项'这个键
+- 如果是post请求, 但用户不写内容怎么办? request.POST 中的'待办事项'这个键对应值为 空的字符串 ''
+- 用GET方法删除,划掉真的对吗? 用隐藏的form
+```
+全局列表
+
+{% for  in  %}
+
+    {{ forloop.counter }}
+
+    {% if  %}
+        
+    {% else %}
+        
+    {% endif %}
+
+{% endfor %}
+
+"{% url 'todolist:删除' forloop.counter %}"
+{# del/<forloop_counter> #}
+redirect()
+```
+## 12.增删改查(一)
+
