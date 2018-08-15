@@ -29,7 +29,7 @@
   <td class="text-dark" id="line-through">{{ 每一件事.待办事项 }}</td>
   <td class="text-secondary">不可编辑</td>
   <td><a class="text-info" href="#">撤销</a></td>
-  <td><a class="text-danger" href="#">删除</a></td>
+  <td><a class="text-danger" href="{% url 'todolist:删除' forloop.counter %}#">删除</a></td>
 </tr>
 {% else %}
 
@@ -38,7 +38,7 @@
   <td>{{ 每一件事.待办事项 }}</td>
   <td><a class="text-info" href="{% url 'todolist:编辑' %}">编辑</a></td>
   <td><a class="text-info" href="#">划掉</a></td>
-  <td><a class="text-info" href="#">删除</a></td>
+  <td><a class="text-info" href="{% url 'todolist:删除' forloop.counter %}">删除</a></td>
 </tr>
 {% endif %}
 

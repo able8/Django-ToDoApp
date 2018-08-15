@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -27,3 +27,7 @@ def about(request):
 
 def edit(request):
     return render(request, 'todolist/edit.html')
+
+def delete(request, forloop_counter):
+    lst.pop(int(forloop_counter) - 1)
+    return redirect('todolist:主页')
