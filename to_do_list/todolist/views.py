@@ -27,8 +27,16 @@ def about(request):
 
 def edit(request, forloop_counter):
     global lst
-    content = {'待修改事项': lst[int(forloop_counter) - 1]['待办事项']}
-    return render(request, 'todolist/edit.html', content)
+    if request.method == 'POST': 
+        if request.POST['已修改事项'] == '':
+           return render(request, 'todolist/edit.html', {'警告': '请收入内容！'})
+        else:
+            lst[int(forloop_counter) - 1]['待办事项'] = request.POST['已修改事项']
+            return redirect('todolist:主页')
+
+    elif request.method == 'GET':
+        content = {'待修改事项': lst[int(forloop_counter) - 1]['待办事项']}
+        return render(request, 'todolist/edit.html', content)
 
 def delete(request, forloop_counter):
     lst.pop(int(forloop_counter) - 1)
