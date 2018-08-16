@@ -42,18 +42,18 @@
 
 {% if 每一件事.done %}
 <tr class="table-dark">
-  <th class="text-dark" scope="row">{{ forloop.counter }}</th>
+  <th class="text-dark" scope="row">{{ 每一件事.id }}</th>
   <td class="text-dark" id="line-through">{{ 每一件事.thing }}</td>
   <td class="text-secondary">不可编辑</td>
   <td>
-      <form method="POST" action="{% url 'todolist:划掉' forloop.counter %}">
+      <form method="POST" action="{% url 'todolist:划掉' 每一件事.id %}">
           {% csrf_token %}
           <input name="完成状态" type="hidden" value="未完成" >
       <button type="submit" class="btn btn-primary btn-sm">撤销</button>
       </form>
   </td>
   <td>
-      <form method="POST" action="{% url 'todolist:删除' forloop.counter %}">
+      <form method="POST" action="{% url 'todolist:删除' 每一件事.id %}">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary btn-sm">删除</button>
       </form>
@@ -62,13 +62,13 @@
 {% else %}
 
 <tr>
-  <th scope="row">{{ forloop.counter }}</th>
+  <th scope="row">{{ 每一件事.id }}</th>
   <td>{{ 每一件事.thing }}</td>
-  <td><a href="{% url 'todolist:编辑' forloop.counter %}">
+  <td><a href="{% url 'todolist:编辑' 每一件事.id %}">
     <button type="submit" class="btn btn-primary btn-sm"> 
     编辑</button></a></td>
   <td>
-  <form method="POST" action="{% url 'todolist:划掉' forloop.counter %}">
+  <form method="POST" action="{% url 'todolist:划掉' 每一件事.id %}">
       {% csrf_token %}
       <input name="完成状态" type="hidden" value="已完成" >
   <button type="submit" class="btn btn-primary btn-sm">划掉</button>
@@ -94,7 +94,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal"> 取消</button>
-        <form method="POST" action="{% url 'todolist:删除' forloop.counter %}">
+        <form method="POST" action="{% url 'todolist:删除' 每一件事.id %}">
           {% csrf_token %}       
           <button type="submit" class="btn btn-primary">确认</button>
         </form>
@@ -113,6 +113,6 @@
 
     </tbody>
   </table>
-  
+
 </div>
 {% endblock 主体 %}
