@@ -250,7 +250,7 @@ COMMIT;
 ```
 - migrate -> 中文:迁移,即运行这个文件 0001_initial.py   真正在数据库中建表,或修改表的结构
 - python mange.py shell
-```
+```python
 from todolist.models import Todo
 Todo.objects.all() -> QuerySet 查询集合 简单理解为表中的所有数据 
                    -> 所有行的集合__str__  显示更友好,命令行以及admin界面
