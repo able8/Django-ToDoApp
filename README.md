@@ -280,3 +280,7 @@ a = Todo.objects.get(id=2)
 a.delete()
 ```
 
+## 14. git新建数据库分支
+```
+git checkout -b db-version
+```
