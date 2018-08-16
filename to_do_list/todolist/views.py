@@ -28,11 +28,13 @@ def edit(request, 每一件事_id):
         if request.POST['已修改事项'] == '':
            return render(request, 'todolist/edit.html', {'警告': '请收入内容！'})
         else:
-            lst[int(每一件事_id) - 1]['待办事项'] = request.POST['已修改事项']
+            a = Todo.objects.get(id=每一件事_id)
+            a.thing = request.POST['已修改事项']
+            a.save()
             return redirect('todolist:主页')
 
     elif request.method == 'GET':
-        content = {'待修改事项': lst[int(每一件事_id) - 1]['待办事项']}
+        content = {'待修改事项': Todo.objects.get(id=每一件事_id).thing }
         return render(request, 'todolist/edit.html', content)
 
 def delete(request, 每一件事_id):
