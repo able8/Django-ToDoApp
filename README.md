@@ -1,6 +1,6 @@
 # Django_ToDoApp
 
-- Django Web开发  零基础学习 搭建待办清单网站 
+- Python Django Web开发  零基础学习 搭建 待办清单网站 
 
 - 根据[B站视频](https://www.bilibili.com/video/av24293644/?p=1)整理，简单易懂
 
