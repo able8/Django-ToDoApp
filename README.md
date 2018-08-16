@@ -283,4 +283,6 @@ a.delete()
 ## 14. git新建数据库分支
 ```
 git checkout -b db-version
+git push origin db-version # 把本地分支push到远程
+git checkout master # 切换到master分支
 ```
