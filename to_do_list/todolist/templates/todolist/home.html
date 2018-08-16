@@ -77,14 +77,14 @@
 
   <td>
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">删除</button>
+  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal{{ forloop.counter }}">删除</button>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="exampleModal{{ forloop.counter }}Label" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">请确认</h5>
+          <h5 class="modal-title" id="exampleModal{{ forloop.counter }}Label">请确认</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
