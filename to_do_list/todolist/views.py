@@ -13,7 +13,8 @@ def home(request):
     global lst
     if request.method == 'POST':
         if request.POST['待办事项'] == '':
-           return render(request, 'todolist/home.html', {'警告': '请收入内容！'}) 
+            content = {'清单': lst, '警告': '请收入内容！'}
+            return render(request, 'todolist/home.html', content) 
         else:
             lst.append({'待办事项':request.POST['待办事项'], '已完成': False})
             content = {'清单': lst}
