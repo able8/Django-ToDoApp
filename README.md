@@ -8,11 +8,11 @@
 
 - 目标: 做一个 To Do List 待办事项清单网站
 - 打开命令行, 安装虚拟环境
-```
+```sh
 pip install virtualenv  # 安装virtualenv
 ```
 - 建个 Django_venv 文件夹作为虚拟环境
-```
+```sh
 cd Django_venv  # 进入该文件夹
 virtualenv .  # 在当前文件夹构建虚拟环境
 source bin/activate  # 激活虚拟环境
@@ -21,7 +21,7 @@ pip install django==2.0.5  # 安装django2.0.5
 ```
 
 - 建个 Django_ToDoApp 文件夹存放所有django项目
-```
+```sh
 cd Django_ToDoApp
 django-admin startproject to_do_list  # 创建项目
 cd to_do_list  # 进入项目文件夹
@@ -32,7 +32,7 @@ ctrl + c  # 关闭服务器
 
 ## 2.创建app和网页
 - 激活虚拟环境
-```
+```sh
 cd Django_venv # 到虚拟环境文件夹
 source bin/activate  # 执行该文件
 cd Django_ToDoApp/to_do_list  # 进入todo项目文件夹
@@ -40,7 +40,7 @@ python manage.py runserver  # 启动服务器
 ```
 - 一个app负责一种功能
 - 创建一个 todolist App 负责实现 待办事项 功能
-```
+```sh
 python manage.py startapp todolist
 ```
 - 注册该app,告诉服务器我存在
@@ -183,7 +183,7 @@ redirect()
 ```
 ## 12.bootstrap弹窗
 - https://v4.bootcss.com/docs/4.0/components/alerts/
-```
+```html
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <strong>Holy guacamole!</strong> You should check in on some of those fields below.
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -192,7 +192,7 @@ redirect()
 </div>
 ```
 - js
-```
+```js
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -250,7 +250,7 @@ COMMIT;
 ```
 - migrate -> 中文:迁移,即运行这个文件 0001_initial.py   真正在数据库中建表,或修改表的结构
 - python mange.py shell
-```
+```python
 from todolist.models import Todo
 Todo.objects.all() -> QuerySet 查询集合 简单理解为表中的所有数据 
                    -> 所有行的集合__str__  显示更友好,命令行以及admin界面
@@ -281,7 +281,7 @@ a.delete()
 ```
 
 ## 14. git新建数据库分支
-```
+```sh
 git checkout -b db-version
 git push origin db-version # 把本地分支push到远程
 git checkout master # 切换到master分支
