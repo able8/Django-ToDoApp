@@ -10,3 +10,6 @@ body{
 nav input{
   width: 39%!important;
 }
+main{
+  fontsize: 1.2em;
+}
