@@ -17,7 +17,7 @@ def home(request):
             return render(request, 'todolist/home.html', content) 
         else:
             lst.append({'待办事项':request.POST['待办事项'], '已完成': False})
-            content = {'清单': lst}
+            content = {'清单': lst, '信息': '添加成功！'}
             return render(request, 'todolist/home.html', content) 
     elif request.method == 'GET':
         content = {'清单': lst}
