@@ -40,10 +40,10 @@
     <tbody class="no-underline">
 {% for 每一件事 in 清单  %}
 
-{% if 每一件事.已完成 %}
+{% if 每一件事.done %}
 <tr class="table-dark">
   <th class="text-dark" scope="row">{{ forloop.counter }}</th>
-  <td class="text-dark" id="line-through">{{ 每一件事.待办事项 }}</td>
+  <td class="text-dark" id="line-through">{{ 每一件事.thing }}</td>
   <td class="text-secondary">不可编辑</td>
   <td>
       <form method="POST" action="{% url 'todolist:划掉' forloop.counter %}">
@@ -63,7 +63,7 @@
 
 <tr>
   <th scope="row">{{ forloop.counter }}</th>
-  <td>{{ 每一件事.待办事项 }}</td>
+  <td>{{ 每一件事.thing }}</td>
   <td><a href="{% url 'todolist:编辑' forloop.counter %}">
     <button type="submit" class="btn btn-primary btn-sm"> 
     编辑</button></a></td>
@@ -90,7 +90,7 @@
           </button>
         </div>
         <div class="modal-body">
-         确定要删除：<strong>未办事项 {{ 每一件事.待办事项 }}</strong> 吗？
+         确定要删除：<strong>未办事项 {{ 每一件事.thing }}</strong> 吗？
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal"> 取消</button>
@@ -111,33 +111,8 @@
 
 {% endfor %}
 
-      
-      
-      <!--<tr>
-        <th scope="row">2</th>
-        <td>看一会小说</td>
-        <td><a class="text-info" href="#">编辑</a></td>
-        <td><a class="text-info" href="#">划掉</a></td>
-        <td><a class="text-info" href="#">删除</a></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>散散步</td>
-        <td><a class="text-info" href="#">编辑</a></td>
-        <td><a class="text-info" href="#">划掉</a></td>
-        <td><a class="text-info" href="#">删除</a></td>
-      </tr>
-      <tr class="table-dark">
-        <th class="text-dark" scope="row">4</th>
-        <td class="text-dark" id="line-through">去超市</td>
-        <td class="text-secondary">不可编辑</td>
-        <td><a class="text-info" href="#">撤销</a></td>
-        <td><a class="text-danger" href="#">删除</a></td>
-      </tr> -->
     </tbody>
   </table>
-
-{{ 待办事项 }}
-{{ 不存在 }}
+  
 </div>
 {% endblock 主体 %}
